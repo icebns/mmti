@@ -2543,7 +2543,14 @@ function startTest() {
   answers = Array(questions.length).fill(null);
   show("testSection");
   renderQuestion();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // 手机端点击“开始测试”后，自动滚动到第一题位置
+  setTimeout(() => {
+    $("testSection").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 80);
 }
 
 function renderQuestion() {
